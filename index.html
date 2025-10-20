@@ -19,12 +19,6 @@ html,body{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   color:#111;
 }
-.back-btn{
-  position:fixed;top:14px;left:14px;z-index:1000;
-  display:inline-flex;align-items:center;gap:.5rem;
-  padding:.55rem .9rem;border-radius:999px;background:#111;color:#fff;
-  font-weight:800;font-size:.95rem;text-decoration:none;
-}
 header{text-align:center;margin-bottom:20px;}
 header h1{font-family:'Cinzel',serif;font-size:clamp(26px,4.5vw,50px);margin-bottom:10px;font-weight:900;}
 header h2{font-size:clamp(22px,3.5vw,36px);margin-bottom:6px;font-weight:800;}
@@ -48,6 +42,7 @@ header h3{font-size:clamp(18px,3vw,30px);font-weight:600;color:#444;}
 .face.visible{opacity:1;transform:scale(1);}
 .term h2{margin:0;font-size:clamp(40px,8vw,90px);font-weight:900;line-height:1.1;}
 .term p{margin-top:.7rem;font-size:clamp(26px,4vw,42px);font-weight:700;}
+.term small{margin-top:.3rem;font-size:clamp(20px,3vw,30px);font-weight:600;color:#333;}
 
 .actions{display:flex;gap:20px;justify-content:center;margin-top:30px;flex-wrap:wrap;}
 button.btn{
@@ -63,8 +58,6 @@ footer{
 </head>
 <body>
 
-<a href="#" class="back-btn" id="backMenu"><span class="arrow">❮</span> Back to Menu</a>
-
 <header>
   <h1>The Boo-riculum</h1>
   <h2>October Week 4</h2>
@@ -77,7 +70,7 @@ footer{
       <div class="term"><h2 id="frontTitle"></h2></div>
     </div>
     <div class="face hidden" id="backFace">
-      <div class="term"><h2 id="backTitle"></h2><p id="backSub"></p></div>
+      <div class="term"><h2 id="backTitle"></h2><p id="backKana"></p></div>
     </div>
   </div>
 </div>
@@ -93,16 +86,16 @@ footer{
 <script>
 const COLORS=["#ffd166","#a6f7b2","#7dd3fc","#cdb4db","#fbc4ab","#b9fbc0","#fde68a","#f8c8dc","#a5f3fc","#fcd5ce"];
 const CARDS=[
-  {en:"bus route",jp:"バス路線"},
-  {en:"train line",jp:"電車の路線"},
-  {en:"subway station",jp:"地下鉄の駅"},
-  {en:"bus stop",jp:"バス停"},
-  {en:"timetable",jp:"時刻表"},
-  {en:"map",jp:"地図"},
-  {en:"platform",jp:"プラットホーム"},
-  {en:"ticket",jp:"切符"},
-  {en:"fare",jp:"運賃"},
-  {en:"transfer",jp:"乗り換え"}
+  {en:"bus route",jp:"バス路線",kana:"ばす ろせん"},
+  {en:"train line",jp:"電車の路線",kana:"でんしゃ の ろせん"},
+  {en:"subway station",jp:"地下鉄の駅",kana:"ちかてつ の えき"},
+  {en:"bus stop",jp:"バス停",kana:"ばす てい"},
+  {en:"timetable",jp:"時刻表",kana:"じこくひょう"},
+  {en:"map",jp:"地図",kana:"ちず"},
+  {en:"platform",jp:"プラットホーム",kana:"ぷらっとほーむ"},
+  {en:"ticket",jp:"切符",kana:"きっぷ"},
+  {en:"fare",jp:"運賃",kana:"うんちん"},
+  {en:"transfer",jp:"乗り換え",kana:"のりかえ"}
 ];
 let i=0,showBack=false;
 const card=document.getElementById('card');
@@ -110,14 +103,14 @@ const frontFace=document.getElementById('frontFace');
 const backFace=document.getElementById('backFace');
 const frontTitle=document.getElementById('frontTitle');
 const backTitle=document.getElementById('backTitle');
-const backSub=document.getElementById('backSub');
+const backKana=document.getElementById('backKana');
 
 function show(){
   const c=CARDS[i];
   card.style.background=COLORS[i%COLORS.length];
   frontTitle.textContent=c.en;
   backTitle.textContent=c.jp;
-  backSub.textContent="";
+  backKana.textContent=c.kana;
   if(showBack){
     frontFace.classList.replace("visible","hidden");
     backFace.classList.replace("hidden","visible");
@@ -129,7 +122,6 @@ function show(){
 document.getElementById('flipBtn').onclick=()=>{showBack=!showBack;show();};
 document.getElementById('nextBtn').onclick=()=>{i=(i+1)%CARDS.length;showBack=false;show();};
 document.getElementById('prevBtn').onclick=()=>{i=(i-1+CARDS.length)%CARDS.length;showBack=false;show();};
-document.getElementById('backMenu').onclick=(e)=>{e.preventDefault();if(document.referrer)history.back();else location.href='index.html';};
 show();
 </script>
 </body>
