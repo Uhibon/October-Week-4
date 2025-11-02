@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>The Boo-riculum – October Week 4</title>
+<title>The Boo-riculum – November Week 1</title>
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" type="image/png" href="booha-ghost.png">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&display=swap" rel="stylesheet" />
@@ -60,8 +60,8 @@ footer{
 
 <header>
   <h1>The Boo-riculum</h1>
-  <h2>October Week 4</h2>
-  <h3>１０月第４週</h3>
+  <h2>November Week 1</h2>
+  <h3>11月第1週</h3>
 </header>
 
 <div class="card-outer">
@@ -84,18 +84,23 @@ footer{
 <footer>Bryan's English School</footer>
 
 <script>
-const COLORS=["#ffd166","#a6f7b2","#7dd3fc","#cdb4db","#fbc4ab","#b9fbc0","#fde68a","#f8c8dc","#a5f3fc","#fcd5ce"];
-const CARDS=[
-  {en:"bus route",jp:"バス路線",kana:"ばす ろせん"},
-  {en:"train line",jp:"電車の路線",kana:"でんしゃ の ろせん"},
-  {en:"subway station",jp:"地下鉄の駅",kana:"ちかてつ の えき"},
-  {en:"bus stop",jp:"バス停",kana:"ばす てい"},
-  {en:"timetable",jp:"時刻表",kana:"じこくひょう"},
-  {en:"map",jp:"地図",kana:"ちず"},
-  {en:"platform",jp:"プラットホーム",kana:"ぷらっとほーむ"},
-  {en:"ticket",jp:"切符",kana:"きっぷ"},
-  {en:"fare",jp:"運賃",kana:"うんちん"},
-  {en:"transfer",jp:"乗り換え",kana:"のりかえ"}
+const COLORS = ["#ffd166","#a6f7b2","#7dd3fc","#cdb4db","#fbc4ab","#b9fbc0","#fde68a","#f8c8dc","#a5f3fc","#fcd5ce"];
+
+const CARDS = [
+  // Types of homes
+  {en:"house", jp:"一軒家", kana:"いっけんや"},
+  {en:"apartment", jp:"アパート", kana:"あぱーと"},
+  {en:"studio", jp:"ワンルーム", kana:"わんるーむ"},
+  {en:"cottage", jp:"コテージ", kana:"こてーじ"},
+  {en:"duplex", jp:"二世帯住宅", kana:"にせたいじゅうたく"},
+
+  // Rooms
+  {en:"kitchen", jp:"キッチン", kana:"きっちん"},
+  {en:"bathroom", jp:"バスルーム", kana:"ばするーむ"},
+  {en:"bedroom", jp:"ベッドルーム", kana:"べっどるーむ"},
+  {en:"living room", jp:"リビングルーム", kana:"りびんぐるーむ"},
+  {en:"attic", jp:"屋根裏部屋", kana:"やねうらべや"},
+  {en:"basement", jp:"地下室", kana:"ちかしつ"}
 ];
 let i=0,showBack=false;
 const card=document.getElementById('card');
